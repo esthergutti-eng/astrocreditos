@@ -18,7 +18,7 @@ export default function Page() {
             </span>
             Astro<span className="text-primary">Créditos</span>
           </a>
-          <div className="flex items-center gap-4"><span className="hidden font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground sm:block">Cosmos / claridad / conexión</span><a href="https://api.whatsapp.com/send/?phone=34659059392&text=hola,%20necesito%20aclarar%20alguna%20duda" target="_blank" rel="noopener noreferrer" className="font-heading text-sm font-semibold text-primary hover:underline">Contacto</a></div>
+          <div className="flex items-center gap-4"><span className="hidden font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground sm:block">Cosmos / claridad / conexión</span><Link href="/demo" className="font-heading text-xs font-semibold text-primary hover:underline sm:text-sm">Ver una demo</Link><a href="https://api.whatsapp.com/send/?phone=34659059392&text=hola,%20necesito%20aclarar%20alguna%20duda" target="_blank" rel="noopener noreferrer" className="font-heading text-sm font-semibold text-primary hover:underline">Contacto</a></div>
         </header>
 
         <section id="top" className="relative flex min-h-[500px] flex-col justify-center py-20 lg:min-h-[600px] lg:py-28">
