@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { AuthSessionProvider } from '@/components/session-provider'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' })
@@ -21,7 +22,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className={`${inter.variable} ${spaceGrotesk.variable} ${jetBrainsMono.variable}`}>
-      <body className="antialiased">{children}{process.env.NODE_ENV === 'production' && <Analytics />}</body>
+      <body className="antialiased"><AuthSessionProvider>{children}</AuthSessionProvider>{process.env.NODE_ENV === 'production' && <Analytics />}</body>
     </html>
   )
 }
