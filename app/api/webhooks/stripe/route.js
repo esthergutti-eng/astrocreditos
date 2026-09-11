@@ -16,7 +16,12 @@ export async function POST(request) {
   if (!signature || !secret) return NextResponse.json({ error: 'Webhook no configurado.' }, { status: 400 })
 
   let event
-  try { event = stripe.webhooks.constructEvent(await request.text(), signature, secret) } catch (error) { return NextResponse.json({ error: `Firma inválida: ${error.message}` }, { status: 400 }) }
+  try {
+    const stripe = getStripeClient()
+    event = stripe.webhooks.constructEvent(await request.text(), signature, secret)
+  } catch (error) {
+    return NextResponse.json({ error: `Firma inválida: ${error.message}` }, { status: 400 })
+  }
   if (!['checkout.session.completed', 'checkout.session.async_payment_succeeded'].includes(event.type)) return NextResponse.json({ received: true })
 
   const checkoutSession = event.data.object

@@ -1,7 +1,7 @@
 import { getServerSession } from 'next-auth/next'
 import { NextResponse } from 'next/server'
 import { authOptions } from '@/lib/auth-options'
-import pool from '@/lib/db'
+import { withUserContext } from '@/lib/db'
 
 export async function GET(request) {
   const session = await getServerSession(authOptions)
