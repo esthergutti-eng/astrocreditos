@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { ArrowUpRight, CircleStar, Sparkles, Sun, UsersRound, Zap } from 'lucide-react'
 
 const studies = [
@@ -43,7 +44,7 @@ export default function Page() {
 
         <section className="border-t border-border py-20 lg:py-24" aria-labelledby="studies-title">
           <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"><div><p className="font-mono text-xs uppercase tracking-[0.2em] text-secondary">Explora</p><h2 id="studies-title" className="mt-2 font-heading text-3xl font-semibold tracking-tight sm:text-4xl">¿Qué quieres crear hoy?</h2></div><p className="max-w-xs text-sm leading-relaxed text-muted-foreground">Una nueva perspectiva para cada pregunta que traes contigo.</p></div>
-          <div className="grid gap-4 md:grid-cols-3">{studies.map(({ icon: Icon, name, description }) => <article key={name} className="group rounded-lg border border-border bg-card p-6 shadow-card transition-transform duration-200 ease-out hover:scale-[1.02]"><div className="mb-12 flex size-11 items-center justify-center rounded-md border border-primary/30 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><Icon className="size-5" aria-hidden="true" /></div><h3 className="font-heading text-xl font-semibold">{name}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{description}</p></article>)}</div>
+          <div className="grid gap-4 md:grid-cols-3">{studies.map(({ icon: Icon, name, description }) => <Link key={name} href={`/estudios/${name === 'Carta astral' ? 'carta-natal' : name === 'Sinastría' ? 'sinastria' : 'revolucion-solar'}`} className="group rounded-lg border border-border bg-card p-6 shadow-card transition-transform duration-200 ease-out hover:scale-[1.02]"><div className="mb-12 flex size-11 items-center justify-center rounded-md border border-primary/30 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><Icon className="size-5" aria-hidden="true" /></div><h3 className="font-heading text-xl font-semibold">{name}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{description}</p></Link>)}</div>
         </section>
 
         <section className="border-t border-border py-20 lg:py-24" aria-labelledby="packages-title">
