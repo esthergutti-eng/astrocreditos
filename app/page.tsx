@@ -24,7 +24,7 @@ export default function Page() {
             </span>
             Astro<span className="text-primary">Créditos</span>
           </a>
-          <span className="hidden font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground sm:block">Cosmos / claridad / conexión</span>
+          <div className="flex items-center gap-4"><span className="hidden font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground sm:block">Cosmos / claridad / conexión</span><Link href="/auth/signin" className="font-heading text-sm font-semibold text-primary hover:underline">Iniciar sesión</Link></div>
         </header>
 
         <section id="top" className="relative flex min-h-[500px] flex-col justify-center py-20 lg:min-h-[600px] lg:py-28">
